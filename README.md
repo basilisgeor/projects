@@ -7,6 +7,7 @@ Welcome to my GitHub repository containing various projects and assignments from
 1. Computational Vision
 2. Python
 3. Robotics
+4. Information Retrieval
 
 Each course directory contains detailed READMEs and the respective assignments.
 
