@@ -1,0 +1,35 @@
+# Computational Vision (Spring 2023)
+
+This directory contains the assignments for the Computational Vision course (MΥΕ046) taught by Prof. Angelos Giotis during Spring 2023. Below is an overview of each assignment and its contents.
+
+## Assignments
+
+### Assignment 1: Basic Image Processing and Convolution
+
+- **Description:** Basic image processing techniques and manual convolution.
+- **Files:**
+  - [assignment1.ipynb](./Assignment1/assignment1.ipynb)
+  - [assignment1.pdf](./Assignment1/assignment1.pdf)
+  - [requirements.txt](./Assignment1/requirements.txt)
+
+### Assignment 2: Advanced Image Filtering and Effects
+
+- **Description:** Advanced convolution operations and edge detection.
+- **Files:**
+  - [assignment2.ipynb](./Assignment2/assignment2.ipynb)
+  - [assignment2.pdf](./Assignment2/assignment2.pdf)
+  - [requirements.txt](./Assignment2/requirements.txt)
+
+### Assignment 3: Image Segmentation and Feature Extraction
+
+- **Description:** Image segmentation and feature extraction techniques.
+- **Files:**
+  - [assignment3.ipynb](./Assignment3/assignment3.ipynb)
+  - [assignment3.pdf](./Assignment3/assignment3.pdf)
+  - [requirements.txt](./Assignment3/requirements.txt)
+
+## How to Run
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/your-repository-name.git
