@@ -1,0 +1,46 @@
+## README.md
+
+# Song Search and Information Retrieval System
+
+### Brief Description of the Assignment
+
+The objective of this assignment is to design and implement a system for searching songs and other information related to musicians and songs. The implementation utilizes the Lucene library. Initially, documents related to songs, song collections, or musicians are collected (scraping). Text analysis functions (such as typo correction, etc.) and index construction are then added. Document search is performed using keywords with some additional functionalities, and finally, results are presented.
+
+### Document Collection (Corpus)
+
+Documents are collected from two sources, the Spotify API and the Genius API. Initially, we need the Spotify Client Id, Spotify Client Secret, and the Spotify access token obtained via getSpotifyAccessToken to connect to Spotify and, using playlist Ids, find the basic information about the songs in the playlist. Specifically, in the LyricsCollector class, using getPlaylistTracks, we obtain a list of songs in the playlist. For each song, we create a Song object containing all the song information, including the title, artist name, album name, release date, and place the object in a list of all songs (allSongs). After obtaining the Genius access token, we use the Genius API, and with the song information, we fetch the corresponding lyrics and scrape the webpage using Jsoup. In collectSongs, we gather the desired songs from a list of playlists, ensuring that we collect at least 500 songs. We observed that the Spotify Access Token expired approximately every hour. Therefore, we created startTokenRefresher to refresh the Spotify Access Token every 3500 seconds to avoid interruption. Once this process is complete, we store the collected information in a text file using saveToTextFile, in a serialized file using saveToSerFile, and in a database using saveToDatabase. The database is created in DatabaseManager with the name songs and fields: id INTEGER PRIMARY KEY, title TEXT NOT NULL, artist TEXT NOT NULL, album TEXT, release_date TEXT, lyrics TEXT, UNIQUE(title, artist), with title and artist set as unique to allow removeDuplicates to eliminate duplicate entries.
+
+### Text Analysis and Index Construction
+
+Before indexing the dataset, some preprocessing tasks are performed. Starting in the CustomAnalyzer class, we create a custom analyzer for the desired processing. Specifically, we create a TokenStreamComponents object that combines:
+- Tokenization: Splitting the text into individual terms
+- LowerCaseFilter: Converting all text to lowercase to ensure case-insensitive search
+- StopFilter: Removing common English words (e.g., the, and, etc.) that do not contribute to search relevance
+- SynonymGraphFilter: Using a synonym file we created containing 100 words and their synonyms
+Additionally, using the AcronymExpander class, we created a HashMap with acronyms and their full meanings so that searching for YMCA or Young Men's Christian Association yields the same results. The document unit in our system is each individual song, and each unit will have the following fields:
+- Title: The song title
+- Artist: The artist name
+- Album: The album name the song belongs to
+- Release Date: The song's release date
+- Lyrics: The song lyrics
+The constructed index is a Lucene index with the following fields:
+- Title: A field for the song title, indexed, tokenized, and stored
+- Artist: A field for the artist name, indexed, tokenized, and stored
+- Album: A field for the album name, indexed, tokenized, and stored
+- Release Date: A field for the song's release date, tokenized, and stored
+- Lyrics: A field for the song lyrics, indexed, tokenized, and stored
+This structure allows various search methods, such as searching by title, album, artist, release date, or lyrics.
+
+### Search
+
+Our system is designed to search using keywords or key phrases, while also maintaining a search history for the user using the QueryHistory class. Specifically, when searching with keywords or key phrases, depending on the fields selected for searching, it performs a search across all documents to find exact matches. Additionally, using the user's Query History and the Synonym File we created, the system suggests alternate queries via alternateQuery that are synonyms of the queries the user has already searched. This way, if the user doesn't find what they are looking for with specific words, they might find it with their synonyms.
+
+### Result Presentation
+
+For presenting the results, we created a basic GUI in the SongSearchApp class, with dimensions 800x600 and titled “Song Lyrics Search.” The GUI includes the following panels: Search Panel, Results Panel, and Checkbox Panel. Specifically, there is a field where the user can type the keywords or phrases they are searching for. Below are checkboxes for each field to search in: Title, Artist, Album, Lyrics, an All Fields checkbox to search across all fields, and a Semantic Search checkbox for the optional question. After making the necessary selections, the user presses the Enter button. The results panel displays the songs and all relevant information (title, album, artist, lyrics) matching the search. The results are paginated with 10 results per page, and the searched words or phrases that match are highlighted in bold. The user can navigate through the results by clicking the “Next Page” button. All results are grouped by artist, assuming this is the most practical way to present song information.
+
+### Optional Question
+
+The goal of this question is to extend the search engine to support semantic search. Specifically, to use a model for generating vector representations (embedding). These vector representations need to be stored in some structure. Document retrieval then examines the similarity between these vector representations. Our implementation starts with a Python script, Word2Vec_Embedding, which maps each word to a vector, then calculates an average vector for each song based on its lyrics, and stores these in a JSON file. In the VectorLoader class, we load the song vectors from the file and, based on their IDs and vectors, compare their cosines to find their similarities. In the Searcher class, we take the Query, search across all fields, find its corresponding vector, and compare it with the song vectors. By setting a minimum similarity threshold for the vectors, we find songs that semantically match. However, our implementation has some issues as not all vectors corresponding to our songs are correct, so the search is not fully accurate. Nevertheless, we did our best to implement it with our knowledge.
+
+---
