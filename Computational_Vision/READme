@@ -80,31 +80,6 @@ The final assignment focuses on segmentation and feature extraction, including:
 - `assignment3.pdf`: PDF export of the Jupyter Notebook.
 
 ---
-
-### How to Run the Notebooks
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/computational-vision-assignments.git
-   ```
-2. **Navigate to the Repository:**
-   ```bash
-   cd computational-vision-assignments
-   ```
-3. **Install Dependencies:**
-   Ensure you have Python and Jupyter installed. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. **Run Jupyter Notebook:**
-   ```bash
-   jupyter notebook
-   ```
-5. **Open the Desired Assignment:**
-   In the Jupyter Notebook interface, navigate to the desired `.ipynb` file and open it.
-
----
-
 ### Contact
 
 For any questions or further information, please contact:
