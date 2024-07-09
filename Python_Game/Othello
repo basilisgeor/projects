@@ -1,0 +1,71 @@
+Here's a README file for your Othello game project, followed by a completed version of your code with necessary corrections and improvements.
+
+### README.md
+
+```markdown
+# Othello Game
+
+This repository contains the implementation of the classic board game Othello (also known as Reversi). The game allows two players (human vs. human or human vs. computer) to play against each other on an 8x8 board.
+
+## How to Play
+
+The game starts with an initial configuration of the board with four discs in the center:
+- Black (1) at positions (3, 3) and (4, 4)
+- White (2) at positions (3, 4) and (4, 3)
+
+Players take turns placing their discs on the board, with the objective of flipping their opponent's discs. The game ends when neither player can make a valid move, and the player with the most discs on the board wins.
+
+## Features
+
+- Human vs. Human mode
+- Human vs. Computer mode
+- Dynamic board display
+- Score calculation
+
+## Running the Game
+
+To run the game, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/othello-game.git
+   cd othello-game
+   ```
+
+2. Run the game script:
+   ```bash
+   python othello.py
+   ```
+
+3. Follow the on-screen instructions to play the game.
+
+## Code Overview
+
+### Functions
+
+- `create_board()`: Initializes the game board.
+- `print_board(board)`: Prints the current state of the board.
+- `reverse_*`: Various functions to handle the flipping of discs in all directions.
+- `add_checkers(board, row, column, color)`: Adds a disc to the board and flips the opponent's discs.
+- `human_play(board, color)`: Handles the human player's move.
+- `computer_play(board)`: Handles the computer's move.
+- `print_score(board)`: Prints the final score and announces the winner.
+
+### Example Usage
+
+```python
+board = create_board()
+print_board(board)
+human_play(board, 1)
+computer_play(board)
+print_score(board)
+```
+
+## Contact
+
+For any questions or further information, please contact:
+
+- **Name:** Vasilis Georgakis
+- **Email:** vasilisgeorgakis7@gmail.com
+- **LinkedIn:** [www.linkedin.com/in/vasilis-georgakis-a01824316]
+```
