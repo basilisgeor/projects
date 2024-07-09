@@ -1,0 +1,76 @@
+## README.md
+
+# TurtleBot3 Simulation Assignment
+
+### Brief Description of the Assignment
+
+The objective of this assignment is to simulate the movement of the TurtleBot3 wheeled robot in a simulation environment. This movement is based on trajectory planning initially done using cubic polynomials and manually designing this trajectory on paper. Subsequently, using Python and the ROS-Noetic software, we create a code file that simulates this movement in the Gazebo simulation environment.
+
+### Trajectory Planning of the Robot
+
+To calculate the trajectory points that the robot will follow, according to the assignment instructions, we select the highest A.M. (Student Number) in the team, which is 4009. Based on Table 1 of the assignment, the points are as follows:
+- Initial position and orientation: \( q0 = [x0, y0, z0]^T = [0m, 0m, 0rad]^T \)
+- Intermediate position: \( qu = [xu, yu, zu]^T = [20m, 10m, φ1 \text{ rad}]^T \)
+- Final position and orientation: \( qf = [xf, yf, zf]^T = [20m, –10m, 2.0045 \text{ rad}]^T \)
+
+From Diagram 1, we find the following:
+- Distance from \( q0 \) to \( qu \): \( d1 = 22.36m \)
+- Distance from \( qu \) to \( qf \): \( d2 = 20m \)
+- Angle of the line \( d1 \) with the x-axis, i.e., the orientation the robot needs to have to go from the initial point \( q0 \) to the intermediate point \( qu \) is \( φ1 = 25.62° = 0.4473 \text{ rad} \)
+- Angle of the extension \( d1 \) with \( d2 \), i.e., the orientation the robot needs to have to go from the intermediate point \( qu \) to the final point \( qf \) is \( φ = 115.62° = 2.0179 \text{ rad} \)
+- Final rotation angle to achieve the final orientation of the robot is \( φ = 204.84° = 3.5751 \text{ rad} \)
+
+### Method
+
+We use cubic polynomials, so the equations we use are:
+- \( Θ(t) = α0 + α1t + α2t^2 + α3t^3 \)
+- \( Θ'(t) = α1 + 2α2t + 3α3t^2 \)
+- \( Θ''(t) = 2α2 + 6α3t \)
+
+With:
+- \( α0 = q0 \)
+- \( α1 = Θ'0 \)
+- \( α2 = \frac{3}{tf^3} (Θf - Θ0) - \frac{2}{tf} Θ'0 - \frac{1}{tf} Θ'f \)
+- \( α3 = -\frac{2}{tf^3} (Θf - Θ0) + \frac{1}{tf} (Θ'0 - Θ'f) \)
+
+According to the instructions, the velocities at the initial, intermediate, and final points are zero, so we have:
+- \( Θ'(t) = \frac{6}{tf^2} (Θf - Θ0) t - \frac{6}{tf^3} (Θf - Θ0) t^2 \)
+- \( Θ''(t) = \frac{6}{tf^2} (Θf - Θ0) - \frac{12}{tf^3} (Θf - Θ0) t \)
+
+### Movements of the Robot
+
+The movements the robot will follow are:
+1. **First Rotation**: From \( φ0 = 0° \) to \( φ1 = 25.62° \) with distance \( dφ01 = 25.62° \)
+   - Angular acceleration: \( θ''01 = 25 \text{ deg/sec}^2 \) (counterclockwise rotation)
+   - Total time: \( tdφ01 = 2 \text{ sec} \)
+   - Acceleration/deceleration time: \( ta11 = 0.349 \text{ sec} \)
+   - Smooth motion time: \( t01 = tdφ01 - 2ta11 = 1.302 \text{ sec} \)
+   - Angular velocity: \( Θ'01 = 17.46 \text{ deg/sec} \)
+
+2. **First Linear Motion**: From \( q0 = [0,0] \) to \( qu = [20,10] \) with distance \( d1 = 22.36m \)
+   - Linear acceleration: \( θ''ou = 0.005 \text{ m/sec}^2 \)
+   - Total time: \( tdou = 115 \text{ sec} \)
+   - Acceleration/deceleration time: \( ta12 = 1.552 \text{ sec} \)
+   - Smooth motion time: \( tou = tdou - 2ta12 = 111.896 \text{ sec} \)
+   - Linear velocity: \( Θ'ou = 0.16 \text{ m/sec} \)
+
+3. **Second Rotation**: From \( φ1 = 25.62° \) to \( φ2 = 115.62° \) with distance \( dφ12 = 90° \)
+   - Angular acceleration: \( θ''12 = 25 \text{ deg/sec}^2 \) (counterclockwise rotation)
+   - Total time: \( tdφ12 = 4 \text{ sec} \)
+   - Acceleration/deceleration time: \( ta21 = 0.385 \text{ sec} \)
+   - Smooth motion time: \( t12 = tdφ12 - 2ta21 = 3.284 \text{ sec} \)
+   - Angular velocity: \( Θ'12 = 26.95 \text{ deg/sec} \)
+
+4. **Second Linear Motion**: From \( q0 = [20,10] \) to \( qu = [20,-10] \) with distance \( d2 = 20m \)
+   - Linear acceleration: \( θ''uf = 0.002 \text{ m/sec}^2 \)
+   - Total time: \( tduf = 105 \text{ sec} \)
+   - Acceleration/deceleration time: \( ta22 = 42.85 \text{ sec} \)
+   - Smooth motion time: \( tuf = tduf - 2ta22 = 19.3 \text{ sec} \)
+   - Linear velocity: \( Θ'uf = 0.17 \text{ m/sec} \)
+
+5. **Third Rotation**: From \( φ2 = 115.62° \) to \( φ3 = 204.84° \) with distance \( dφ23 = 89.22° \)
+   - Angular acceleration: \( θ''23 = 25 \text{ deg/sec}^2 \) (counterclockwise rotation)
+   - Total time: \( tdφ23 = 6 \text{ sec} \)
+   - Acceleration/deceleration time: \( ta31 = 0.363 \text{ sec} \)
+   - Smooth motion time: \( t23 = tdφ23 - 2ta31 = 5.274 \text{ sec} \)
+   - Angular velocity: \( Θ'23 = 21.78 \text{ deg/sec} \)
