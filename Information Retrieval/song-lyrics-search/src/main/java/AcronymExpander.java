@@ -1,0 +1,141 @@
+import java.util.HashMap;
+import java.util.Map;
+
+/*
+ * This class creates and then utilizes a HashMap full of acronyms and their corresponding full words
+ */
+public class AcronymExpander {
+
+    private static final Map<String, String> ACRONYMS = new HashMap<>();
+
+    static {
+        ACRONYMS.put("YMCA", "Young Men's Christian Association");
+        ACRONYMS.put("MMMBop", "Many Meanings, but Mainly Nothing");
+        ACRONYMS.put("OMG", "Oh My God");
+        ACRONYMS.put("WAP", "Wet-Ass Pussy");
+        ACRONYMS.put("REM", "Rapid Eye Movement");
+        ACRONYMS.put("ASAP", "As Soon As Possible");
+        ACRONYMS.put("BTS", "Bangtan Boys");
+        ACRONYMS.put("NWA", "Niggaz Wit Attitudes");
+        ACRONYMS.put("DMB", "Dave Matthews Band");
+        ACRONYMS.put("PITUSA", "Party In The USA");
+        ACRONYMS.put("ABBA", "Agnetha, Björn, Benny, Anni-Frid");
+        ACRONYMS.put("ACDC", "Alternating Current Direct Current");
+        ACRONYMS.put("DOA", "Dead On Arrival");
+        ACRONYMS.put("EBTG", "Everything But The Girl");
+        ACRONYMS.put("INXS", "In Excess");
+        ACRONYMS.put("KISS", "Keep It Simple, Stupid");
+        ACRONYMS.put("LMFAO", "Laughing My Freaking Ass Off");
+        ACRONYMS.put("MIA", "Missing in Action");
+        ACRONYMS.put("NSYNC", "In Sync");
+        ACRONYMS.put("OAR", "Of A Revolution");
+        ACRONYMS.put("REM", "Rapid Eye Movement");
+        ACRONYMS.put("ZZTOP", "Zee Zee Top");
+        ACRONYMS.put("TLC", "Tender Loving Care");
+        ACRONYMS.put("UB40", "Unemployment Benefit, Form 40");
+        ACRONYMS.put("YAZ", "Yet Another Zoomer");
+        ACRONYMS.put("ZZZ", "Zee Zee Zee");
+        ACRONYMS.put("FYI", "For Your Information");
+        ACRONYMS.put("LOL", "Laugh Out Loud");
+        ACRONYMS.put("OMG", "Oh My God");
+        ACRONYMS.put("ASAP", "As Soon As Possible");
+        ACRONYMS.put("BTW", "By The Way");
+        ACRONYMS.put("BRB", "Be Right Back");
+        ACRONYMS.put("TGIF", "Thank God It's Friday");
+        ACRONYMS.put("TTYL", "Talk To You Later");
+        ACRONYMS.put("ROFL", "Rolling On The Floor Laughing");
+        ACRONYMS.put("WTF", "What The F***");
+        ACRONYMS.put("DIY", "Do It Yourself");
+        ACRONYMS.put("FAQ", "Frequently Asked Questions");
+        ACRONYMS.put("TGIF", "Thank God It's Friday");
+        ACRONYMS.put("VIP", "Very Important Person");
+        ACRONYMS.put("CEO", "Chief Executive Officer");
+        ACRONYMS.put("CFO", "Chief Financial Officer");
+        ACRONYMS.put("CTO", "Chief Technology Officer");
+        ACRONYMS.put("HR", "Human Resources");
+        ACRONYMS.put("IT", "Information Technology");
+        ACRONYMS.put("USA", "United States of America");
+        ACRONYMS.put("UK", "United Kingdom");
+        ACRONYMS.put("EU", "European Union");
+        ACRONYMS.put("UN", "United Nations");
+        ACRONYMS.put("NASA", "National Aeronautics and Space Administration");
+        ACRONYMS.put("FBI", "Federal Bureau of Investigation");
+        ACRONYMS.put("CIA", "Central Intelligence Agency");
+        ACRONYMS.put("NSA", "National Security Agency");
+        ACRONYMS.put("USAID", "United States Agency for International Development");
+        ACRONYMS.put("WHO", "World Health Organization");
+        ACRONYMS.put("COVID", "Coronavirus Disease");
+        ACRONYMS.put("DNA", "Deoxyribonucleic Acid");
+        ACRONYMS.put("RAM", "Random Access Memory");
+        ACRONYMS.put("CPU", "Central Processing Unit");
+        ACRONYMS.put("GPU", "Graphics Processing Unit");
+        ACRONYMS.put("HTML", "Hypertext Markup Language");
+        ACRONYMS.put("CSS", "Cascading Style Sheets");
+        ACRONYMS.put("URL", "Uniform Resource Locator");
+        ACRONYMS.put("PDF", "Portable Document Format");
+        ACRONYMS.put("JPEG", "Joint Photographic Experts Group");
+        ACRONYMS.put("GIF", "Graphics Interchange Format");
+        ACRONYMS.put("PNG", "Portable Network Graphics");
+        ACRONYMS.put("AI", "Artificial Intelligence");
+        ACRONYMS.put("ML", "Machine Learning");
+        ACRONYMS.put("IoT", "Internet of Things");
+        ACRONYMS.put("AR", "Augmented Reality");
+        ACRONYMS.put("VR", "Virtual Reality");
+        ACRONYMS.put("API", "Application Programming Interface");
+        ACRONYMS.put("SDK", "Software Development Kit");
+        ACRONYMS.put("GUI", "Graphical User Interface");
+        ACRONYMS.put("GPS", "Global Positioning System");
+        ACRONYMS.put("URL", "Uniform Resource Locator");
+        ACRONYMS.put("HTTP", "Hypertext Transfer Protocol");
+        ACRONYMS.put("FTP", "File Transfer Protocol");
+        ACRONYMS.put("SMTP", "Simple Mail Transfer Protocol");
+        ACRONYMS.put("IMAP", "Internet Message Access Protocol");
+        ACRONYMS.put("POP", "Post Office Protocol");
+        ACRONYMS.put("VPN", "Virtual Private Network");
+        ACRONYMS.put("HTML", "Hypertext Markup Language");
+        ACRONYMS.put("CSS", "Cascading Style Sheets");
+        ACRONYMS.put("XML", "eXtensible Markup Language");
+        ACRONYMS.put("JSON", "JavaScript Object Notation");
+        ACRONYMS.put("SQL", "Structured Query Language");
+        ACRONYMS.put("JVM", "Java Virtual Machine");
+        ACRONYMS.put("IDE", "Integrated Development Environment");
+        ACRONYMS.put("API", "Application Programming Interface");
+        ACRONYMS.put("SDK", "Software Development Kit");
+        ACRONYMS.put("OS", "Operating System");
+        ACRONYMS.put("BIOS", "Basic Input/Output System");
+        ACRONYMS.put("RAM", "Random Access Memory");
+        ACRONYMS.put("CPU", "Central Processing Unit");
+        ACRONYMS.put("GPU", "Graphics Processing Unit");
+        ACRONYMS.put("USB", "Universal Serial Bus");
+        ACRONYMS.put("SSD", "Solid State Drive");
+        ACRONYMS.put("HDD", "Hard Disk Drive");
+        ACRONYMS.put("LAN", "Local Area Network");
+        ACRONYMS.put("WAN", "Wide Area Network");
+        ACRONYMS.put("WLAN", "Wireless Local Area Network");
+        ACRONYMS.put("Bluetooth", "Bluetooth Wireless Technology");
+        ACRONYMS.put("IPv4", "Internet Protocol version 4");
+        ACRONYMS.put("IPv6", "Internet Protocol version 6");
+        ACRONYMS.put("DNS", "Domain Name System");
+        ACRONYMS.put("DHCP", "Dynamic Host Configuration Protocol");
+        ACRONYMS.put("VoIP", "Voice over Internet Protocol");
+        ACRONYMS.put("HTML5", "Hypertext Markup Language version 5");
+        ACRONYMS.put("CSS3", "Cascading Style Sheets version 3");
+        ACRONYMS.put("AJAX", "Asynchronous JavaScript and XML");
+        ACRONYMS.put("REST", "Representational State Transfer");
+        ACRONYMS.put("SEO", "Search Engine Optimization");
+        ACRONYMS.put("CMS", "Content Management System");
+        ACRONYMS.put("ERP", "Enterprise Resource Planning");
+        ACRONYMS.put("CRM", "Customer Relationship Management");
+        ACRONYMS.put("SaaS", "Software as a Service");
+        ACRONYMS.put("PaaS", "Platform as a Service");
+        ACRONYMS.put("IaaS", "Infrastructure as a Service");
+        ACRONYMS.put("UX", "User Experience");
+        ACRONYMS.put("UI", "User Interface");
+        ACRONYMS.put("SEO", "Search Engine Optimization");
+        ACRONYMS.put("SEM", "Search Engine Marketing");
+    }
+
+    public static String expand(String acronym) {
+        return ACRONYMS.getOrDefault(acronym.toUpperCase(), acronym);
+    }
+}
