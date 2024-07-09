@@ -8,6 +8,7 @@ Welcome to my GitHub repository containing various projects and assignments from
 2. Python
 3. Robotics
 4. Information Retrieval
+5. Virtual, Augmented and Mixed Reality
 
 Each course directory contains detailed READMEs and the respective assignments.
 
