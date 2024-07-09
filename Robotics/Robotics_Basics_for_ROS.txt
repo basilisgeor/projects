@@ -1,0 +1,53 @@
+1) 1st terminal : roscore ----> to open ros 
+2) 2nd terminal : gazebo  ----> to open the GUI of gazebo the 3d space to navigate a robot 
+
+other stuff shown in the tutorial (at ecourse) for listeners and stuff
+more can be found in the ros.org in the tutorials segment
+ 
+ 
+3) roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+4) roslaunch turtlebot3_fake turtlebot3_fake.launch
+
+5)roslaunch turtlebot3_gazebo turtlebot3_empy_world.launch
+6)roslaunch turtlebot3_gazebo turtlebot3_world.launch
+7)roslaunch turtlebot3_gazebo turtlebot3_house.launch
+
+8)roslaunch turtlebot3_gazebo turtlebot3_simulation.launch
+9)roslaunch turtlebot3_gazebo turtlebot3_gazebo_rvtz.launch
+
+10)rosrun tf tf_echo /base_link /odom
+11)rossun tf tf_echo /odom /base_link
+
+
+➡️🤖️To Run Athe Turtlebot In Gazebo Or Rviz Do 🤖️:
+	i) cd ~/catkin_ws/src/
+	ii) source /home/vaggst/catkin_ws/devel/setup.bash
+	iii) roslaunch turtlebot3_fake turtlebot3_fake.launch (FOR RVIZ)
+		a)roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+	iv)roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch (FOR GAZEBO)
+		
+		
+➡️Add velocity to the robot : 
+	after the launch -----> on a second terminal 
+	i) rostopic pub /cmd_vel geometry_msgs/Twist -r 10 -- '[0.0,0.0,0.0]' '[0.0,0.0,0.0]' 
+	the 2 arrays are one for the xyz velocity and other for the xyz rotation ! 
+	+ or - for direction and number for the robots velocity ! 
+	
+	
+➡️Robot Steering mechaninsm 
+	new terminal while running a cmd_vel command 	
+	command : $rqt 
+	Plugins->Robot Tools -> Robot Steering ! 
+	and you can make the robot do whatever with the 2 sliders ! 	
+	
+	
+➡️To run a script with the movement:  
+	for the starting set up of the appropriate files and pkg follow the intractions : http://wiki.ros.org/turtlesim/Tutorials/Moving%20in%20a%20Straight%20Line
+	Terminal 1 : roscore
+	Terminal 2 : line 22 stuff for gazebo ! 
+	Terminal 3 : in file ~/catkin_ws/src 
+		     i) source /home/vaggst/catkin_ws/devel/setup.bash
+		     ii) rosrun turtlebot3_cleaner move.py
+	where move.py python code in turtlebot3_cleaner/src directory with the code to make the turtlebot3 move ! 
+!!!!!!!!!!! A python error solved with command :  sudo apt-get install python-is-python3 !!!!!!!!!!!!!!!!	
+	 
