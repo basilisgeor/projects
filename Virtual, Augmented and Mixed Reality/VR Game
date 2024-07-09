@@ -1,0 +1,67 @@
+## README.md
+
+# VR Gyroscope Ball Game
+
+### Overview
+
+Welcome to the VR Gyroscope Ball Game! This immersive game combines virtual reality and mobile technology to create a unique and engaging experience. Players use their phone's gyroscope to control a ball, navigate through obstacles, and place the ball in the hole to advance to the next stage.
+
+### Features
+
+- **VR Environment**: Experience the game in a fully immersive virtual reality setting.
+- **Gyroscope Control**: Use your phone's gyroscope to control the ball with intuitive tilt movements.
+- **Challenging Obstacles**: Navigate through various obstacles that test your precision and timing.
+- **Progressive Stages**: Complete each level by placing the ball in the hole to unlock the next stage.
+
+### Requirements
+
+- **Hardware**: 
+  - VR headset compatible with your setup (e.g., Oculus Rift, HTC Vive, etc.)
+  - Smartphone with a gyroscope sensor
+- **Software**: 
+  - Unity version 2020.3 or later
+  - Android/iOS platform for the mobile app
+
+### Setup Instructions
+
+#### VR Environment
+
+1. **Install Unity**: Ensure you have Unity 2020.3 or later installed on your development machine.
+2. **Clone the Repository**: Clone or download the project repository from [GitHub](your-repository-link).
+3. **Open the Project**: Open the project in Unity.
+4. **VR SDK Setup**: Configure your VR SDK in Unity (Oculus, SteamVR, etc.). Follow the SDK-specific setup instructions for integration.
+5. **Build the VR Environment**: Build and run the VR environment on your VR headset.
+
+#### Mobile Controller App
+
+1. **Open Mobile Project**: Open the mobile controller project in Unity (included in the repository).
+2. **Gyroscope Input**: Ensure the gyroscope input is properly configured in the `GyroController` script.
+3. **Build and Deploy**: Build the mobile project for your target platform (Android/iOS) and deploy it to your smartphone.
+4. **Connect to VR Environment**: Ensure your mobile device and VR setup are on the same network for communication.
+
+### How to Play
+
+1. **Start the VR Game**: Launch the VR environment on your VR headset.
+2. **Launch Mobile App**: Open the mobile app on your smartphone.
+3. **Connect**: The mobile app should automatically connect to the VR environment. If not, follow the in-app instructions to connect manually.
+4. **Control the Ball**: Tilt your phone to move the ball in the VR environment. Navigate through obstacles by carefully controlling the ball's movement.
+5. **Reach the Goal**: Place the ball in the hole to complete the stage and unlock the next level.
+6. **Progress**: Continue to the next stage and face new challenges!
+
+### Troubleshooting
+
+- **Connection Issues**: Ensure both the VR environment and mobile device are on the same network. Check for any firewall or network restrictions.
+- **Gyroscope Sensitivity**: Adjust the gyroscope sensitivity in the mobile app settings if the controls feel too sensitive or unresponsive.
+- **VR Performance**: Optimize the VR environment settings in Unity for better performance on your VR headset.
+
+### Contribution
+
+We welcome contributions to improve the game! Feel free to fork the repository, make improvements, and submit a pull request.
+
+### Contact
+
+For any questions or support, please contact us at [vasilisgeorgakis7@gmail.com].
+
+---
+
+Enjoy playing the VR Gyroscope Ball Game and challenge yourself to complete all the stages!
